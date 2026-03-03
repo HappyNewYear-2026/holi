@@ -63,26 +63,28 @@ export default function WishPage() {
     });
   }, []);
 
-  const [showNext, setShowNext] = useState(false);
+  const [showReveal, setShowReveal] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowNext(true), 10000);
+    const timer = setTimeout(() => setShowReveal(true), 10000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <main className="action-page">
-      <section className="wish-msg-box">
+      <section className={`wish-msg-box ${showReveal ? "show" : ""}`}>
         <h2 className="wish-heading">Happy Holi</h2>
-        <p className="wish-line">
-          Let every splash of color bring new happiness to your life.
-        </p>
-        <p className="wish-line">
-          Wishing you laughter, love, and bright moments with your friends.
-        </p>
-        <p className="wish-line">
-          Celebrate this festival with joy, music, and endless smiles.
-        </p>
+        <div className="wish-inner-box">
+          <p className="wish-mini-line">
+            Let every splash of color bring new happiness to your life.
+          </p>
+          <p className="wish-mini-line">
+            Wishing you laughter, love, and bright moments with your friends.
+          </p>
+          <p className="wish-mini-line">
+            Celebrate this festival with joy, music, and endless smiles.
+          </p>
+        </div>
       </section>
 
       <div className="guns-layer">
@@ -151,7 +153,7 @@ export default function WishPage() {
         ))}
       </div>
 
-      <div className={`next-wrap action-next ${showNext ? "show" : ""}`}>
+      <div className={`next-wrap action-next ${showReveal ? "show" : ""}`}>
         <Link href="/final" className="next-btn">
           Next
         </Link>
