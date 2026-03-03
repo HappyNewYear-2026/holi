@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 
 const colors = [
   "#32c5ff",
@@ -114,19 +114,32 @@ export default function WishPage() {
         ))}
 
         {balloons.map((balloon) => (
-          <span
-            key={`balloon-${balloon.id}`}
-            className="strike-balloon"
-            style={{
-              width: `${balloon.size}px`,
-              height: `${balloon.size * 1.18}px`,
-              background: balloon.color,
-              animationDelay: `${balloon.delay}s`,
-              animationDuration: `${balloon.duration}s`,
-              "--bx": `${balloon.x}vw`,
-              "--by": `${balloon.y}vh`,
-            }}
-          />
+          <Fragment key={`balloon-${balloon.id}`}>
+            <span
+              className="strike-balloon"
+              style={{
+                width: `${balloon.size}px`,
+                height: `${balloon.size * 1.18}px`,
+                background: balloon.color,
+                animationDelay: `${balloon.delay}s`,
+                animationDuration: `${balloon.duration}s`,
+                "--bx": `${balloon.x}vw`,
+                "--by": `${balloon.y}vh`,
+              }}
+            />
+            <span
+              className="color-blast"
+              style={{
+                width: `${balloon.size * 0.75}px`,
+                height: `${balloon.size * 0.75}px`,
+                animationDelay: `${balloon.delay}s`,
+                animationDuration: `${balloon.duration}s`,
+                "--bx": `${balloon.x}vw`,
+                "--by": `${balloon.y}vh`,
+                "--c": balloon.color,
+              }}
+            />
+          </Fragment>
         ))}
       </div>
 
