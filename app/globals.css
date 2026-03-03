@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at 10% 10%, #ffe16d, transparent 30%),
+    radial-gradient(circle at 90% 15%, #ff8ab8, transparent 28%),
+    radial-gradient(circle at 50% 85%, #75e0ff, transparent 32%),
+    linear-gradient(135deg, #ff5f6d 0%, #ffc371 45%, #47b8e0 100%);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.holi-stage {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.holi-title {
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+  z-index: 5;
+}
+
+.holi-title h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: 1px;
+}
+
+.holi-title p {
+  margin: 10px 0 0;
+  font-size: clamp(1rem, 2.8vw, 1.3rem);
+}
+
+.balloon {
+  position: absolute;
+  bottom: -180px;
+  border-radius: 45% 45% 45% 45%;
+  box-shadow: inset -8px -12px 22px rgba(0, 0, 0, 0.18),
+    inset 8px 10px 20px rgba(255, 255, 255, 0.22);
+  animation-name: tossUp;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  opacity: 0.92;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  left: 48%;
+  bottom: -28px;
+  width: 2px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+@keyframes tossUp {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.95;
+  }
+
+  100% {
+    transform: translateX(var(--drift)) translateY(-120vh) rotate(18deg);
+    opacity: 0;
+  }
+}
+
+.next-wrap {
+  position: absolute;
+  bottom: 42px;
+  left: 50%;
+  transform: translateX(-50%) translateY(22px);
+  opacity: 0;
+  transition: all 0.8s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.next-wrap.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.next-btn {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 14px 38px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff3366, #ff8c42, #00a8ff);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.next-btn:hover {
+  filter: brightness(1.08);
+}
+
+.wish-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.wish-card {
+  width: min(92vw, 760px);
+  text-align: center;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  padding: 36px 24px;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.22);
+}
+
+.wish-card h2 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 7vw, 3.6rem);
+}
+
+.wish-card p {
+  margin: 0;
+  font-size: clamp(1rem, 3.2vw, 1.4rem);
+  line-height: 1.6;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 22px;
+  color: #fff;
+  font-weight: 700;
+}
