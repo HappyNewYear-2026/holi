@@ -72,10 +72,18 @@ export default function WishPage() {
 
   return (
     <main className="action-page">
-      <div className="action-title">
-        <h2>Color Attack</h2>
-        <p>Water guns and balloons are splashing toward you from all directions.</p>
-      </div>
+      <section className="wish-msg-box">
+        <h2 className="wish-heading">Happy Holi</h2>
+        <p className="wish-line">
+          Let every splash of color bring new happiness to your life.
+        </p>
+        <p className="wish-line">
+          Wishing you laughter, love, and bright moments with your friends.
+        </p>
+        <p className="wish-line">
+          Celebrate this festival with joy, music, and endless smiles.
+        </p>
+      </section>
 
       <div className="guns-layer">
         {guns.map((gun, idx) => (
